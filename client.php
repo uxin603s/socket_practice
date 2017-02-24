@@ -11,13 +11,14 @@ session_start();
 $(document).ready(function(){
 	var ws = new WebSocket("ws://114.33.17.163:1234");
 	ws.onopen = function(){
-		// console.log("握手成功");
+		console.log("握手成功");
 	};
 	ws.onerror = function(){
 		console.log("error");
 	};
 	ws.onmessage = function(e) {
 		var res=JSON.parse(e.data);
+		console.log(res)
 		$("#show").append("<div>"+res.message+"</div>")
 	}
 	$("#text").keyup(function(e){
